@@ -3,7 +3,12 @@ from __future__ import print_function
 from __future__ import absolute_import
 __author__ = 'Tony Beltramelli - www.tonybeltramelli.com'
 
-import tensorflow as tf
+# To avoid costly TF1 -> Tf2 migration
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+# /end
+
+# import tensorflow as tf
 sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
 
 import sys

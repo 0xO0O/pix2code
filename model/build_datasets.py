@@ -5,6 +5,7 @@ __author__ = 'Tony Beltramelli - www.tonybeltramelli.com'
 
 import os
 import sys
+import math
 import hashlib
 import shutil
 
@@ -36,6 +37,10 @@ for f in os.listdir(input_path):
 
 evaluation_samples_number = len(paths) / (distribution + 1)
 training_samples_number = evaluation_samples_number * distribution
+
+# Fix b/c of python2 -> python3 migration
+evaluation_samples_number = round(evaluation_samples_number)
+training_samples_number = round(training_samples_number)
 
 assert training_samples_number + evaluation_samples_number == len(paths)
 
