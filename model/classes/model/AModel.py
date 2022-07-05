@@ -23,3 +23,6 @@ class AModel:
             loaded_model_json = json_file.read()
         self.model = model_from_json(loaded_model_json)
         self.model.load_weights("{}/{}.h5".format(self.output_path, output_name))
+
+    def load_weights(self, pretrained_model):
+        self.mode.load_weights(pretrained_model)
